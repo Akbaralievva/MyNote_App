@@ -24,7 +24,7 @@ class HomeView: UIViewController {
         return view
     }()
     
-    private lazy var notesLabel = MakerView.shared.makeLabel(text: "Notes", font: .systemFont(ofSize: 20, weight: .light))
+    private lazy var notesLbl = MakerView.shared.makeLabel(text: "Notes", font: .systemFont(ofSize: 20, weight: .light))
     
     private lazy var notesCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -76,15 +76,15 @@ class HomeView: UIViewController {
             noteSearchBar.heightAnchor.constraint(equalToConstant: 36)
         ])
         
-        view.addSubview(notesLabel)
+        view.addSubview(notesLbl)
         NSLayoutConstraint.activate([
-            notesLabel.topAnchor.constraint(equalTo: noteSearchBar.bottomAnchor, constant: 32),
-            notesLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 49)
+            notesLbl.topAnchor.constraint(equalTo: noteSearchBar.bottomAnchor, constant: 32),
+            notesLbl.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 49)
         ])
         
         view.addSubview(notesCollectionView)
         NSLayoutConstraint.activate([
-            notesCollectionView.topAnchor.constraint(equalTo: notesLabel.bottomAnchor,constant: 40),
+            notesCollectionView.topAnchor.constraint(equalTo: notesLbl.bottomAnchor,constant: 40),
             notesCollectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor,constant: 24),
             notesCollectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor,constant: -24),
             notesCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)

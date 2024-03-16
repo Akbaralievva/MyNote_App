@@ -7,23 +7,60 @@
 
 import UIKit
 
-class MakerView: UIViewController {
+final class MakerView {
+    
+    static let shared = MakerView()
+    
+    
+    func makeLabel(text: String = "",
+                   font: UIFont = UIFont.systemFont(ofSize: 16, weight: .regular),
+                   textColor: UIColor = .black,
+                   backgroundColor: UIColor = .clear,
+                   textAlignment: NSTextAlignment = .left,
+                   numberOfLines: Int = 0,
+                   lineBreakMode: NSLineBreakMode = .byWordWrapping,
+                   translatesAutoresizingMaskIntoConstraints: Bool = false
+    ) -> UILabel {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        let label = UILabel()
+        label.text = text
+        label.font = font
+        label.textColor = textColor
+        label.backgroundColor = backgroundColor
+        label.textAlignment = textAlignment
+        label.numberOfLines = numberOfLines
+        label.lineBreakMode = lineBreakMode
+        label.translatesAutoresizingMaskIntoConstraints = translatesAutoresizingMaskIntoConstraints
+        return label
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func makeSimpleButton(backgroundColor: UIColor = .clear,
+                           title: String = "",
+                           titleColor: UIColor = .white,
+                          titleFont: UIFont = UIFont.systemFont(ofSize: 16, weight: .regular),
+                           cornerRadius: CGFloat = 0,
+                           translatesAutoresizingMaskIntoConstraints: Bool = false
+    ) -> UIButton {
+        let button = UIButton()
+        button.backgroundColor = backgroundColor
+        button.setTitle(title, for: .normal)
+        button.setTitleColor(titleColor, for: .normal)
+        button.titleLabel?.font = titleFont
+        button.layer.cornerRadius = cornerRadius
+        button.translatesAutoresizingMaskIntoConstraints = translatesAutoresizingMaskIntoConstraints
+        return button
     }
-    */
-
+    
+    func makerImage(imageName: String = "",
+                    translatesAutoresizingMaskIntoConstraints: Bool = false
+    ) -> UIImageView {
+        let image = UIImageView()
+        image.image = UIImage(systemName: imageName)
+        image.translatesAutoresizingMaskIntoConstraints = translatesAutoresizingMaskIntoConstraints
+        return image
+    }
+    
+    
+    
 }
+
